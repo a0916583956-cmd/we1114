@@ -175,17 +175,25 @@
     </nav>
 
     <!-- 1. 首頁全螢幕封面背景 -->
-    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
+    <section id="home" class="relative min-h-screen pt-16 pb-16 flex flex-col items-center justify-center overflow-hidden bg-morandi-bg">
+        <!-- 柔和同張照片模糊鋪滿背景，徹底消除黑邊 -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <img src="https://i.postimg.cc/bNJK9dD0/hun-sha-zhao-AKA00951yi-xiu.jpg" 
+                 alt="" 
+                 aria-hidden="true"
+                 class="w-full h-full object-cover scale-110 blur-xl brightness-[0.75] saturate-110">
+        </div>
+        <!-- 完整比例主婚紗照 -->
+        <div class="absolute inset-0 z-0 flex items-center justify-center">
             <img src="https://i.postimg.cc/bNJK9dD0/hun-sha-zhao-AKA00951yi-xiu.jpg" 
                  alt="吳東洋 & 李嘉敏 婚紗照" 
-                 class="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[0.95]"
+                 class="w-full h-full object-contain filter brightness-[0.92] contrast-[0.96] drop-shadow-2xl"
                  onerror="this.src='https://placehold.co/1920x1080/d4a373/ffffff?text=Wedding+Photo'">
-            <div class="absolute inset-0 bg-gradient-to-t from-morandi-bg via-transparent to-black/30"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/20 pointer-events-none"></div>
         </div>
         
-        <div class="relative z-10 text-center px-4 text-white max-w-3xl">
-            <p class="font-cormorant text-lg sm:text-2xl tracking-[0.25em] uppercase mb-3 text-amber-100/90 font-light">
+        <div class="relative z-10 text-center px-4 text-white max-w-3xl my-auto">
+            <p class="font-cormorant text-lg sm:text-2xl tracking-[0.25em] uppercase mb-3 text-amber-100/90 font-light drop-shadow">
                 Our wedding story starts now.
             </p>
             <h1 class="text-4xl sm:text-6xl my-6 tracking-widest font-kai drop-shadow-md">
@@ -193,22 +201,22 @@
                 <span class="text-morandi-warm font-cormorant mx-2 italic font-normal">&</span>
                 <span class="inline-block">李嘉敏</span>
             </h1>
-            <p class="text-sm sm:text-base tracking-[0.2em] font-light text-slate-100/90 mb-8">
+            <p class="text-sm sm:text-base tracking-[0.2em] font-light text-slate-100/90 mb-8 drop-shadow">
                 2027 . 01 . 24 — 高雄
             </p>
-            <div class="inline-flex items-center px-6 py-2.5 rounded-full bg-black/25 backdrop-blur-sm border border-white/30 text-white/95 tracking-widest text-xs sm:text-sm">
+            <div class="inline-flex items-center px-6 py-2.5 rounded-full bg-black/35 backdrop-blur-sm border border-white/30 text-white/95 tracking-widest text-xs sm:text-sm">
                 <span>向下滑填表單</span>
             </div>
         </div>
-
-        <!-- 下滑提示 -->
-        <div class="absolute bottom-8 z-10 animate-bounce text-white/80 text-center">
-            <a href="#countdown" class="flex flex-col items-center gap-1">
-                <span class="text-[11px] tracking-widest">向下滑動</span>
-                <i class="fa-solid fa-chevron-down text-lg"></i>
-            </a>
-        </div>
     </section>
+
+    <!-- 一直固定在頁面下方的「向下滑動」下一步驟按鈕 -->
+    <div id="fixed-scroll-down" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40">
+        <a href="#countdown" class="flex flex-col items-center gap-1 px-5 py-2 rounded-full bg-black/45 hover:bg-morandi-warm backdrop-blur-md border border-white/30 text-white shadow-lg transition-all duration-300 animate-bounce">
+            <span class="text-[11px] tracking-widest">向下滑動</span>
+            <i class="fa-solid fa-chevron-down text-sm"></i>
+        </a>
+    </div>
 
     <!-- 2. 藝術感倒數計時器 -->
     <section id="countdown" class="py-20 px-4 max-w-4xl mx-auto">
